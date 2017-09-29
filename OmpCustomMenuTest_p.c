@@ -7,7 +7,7 @@
 /* at Tue Jan 19 06:14:07 2038
  */
 /* Compiler settings for OmpCustomMenuTest.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.01.0622 
+    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0622 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
@@ -16,7 +16,7 @@
 */
 /* @@MIDL_FILE_HEADING(  ) */
 
-#if !defined(_M_IA64) && !defined(_M_AMD64) && !defined(_ARM_)
+#if defined(_M_AMD64)
 
 
 #pragma warning( disable: 4049 )  /* more than 64k source lines */
@@ -28,9 +28,6 @@
 #pragma warning( disable: 4232 )  /* dllimport identity*/
 #pragma warning( disable: 4024 )  /* array to pointer mapping*/
 #pragma warning( disable: 4152 )  /* function/data pointer conversion in expression */
-#pragma warning( disable: 4100 ) /* unreferenced arguments in x86 call */
-
-#pragma optimize("", off ) 
 
 #define USE_STUBLESS_PROXY
 
@@ -50,7 +47,7 @@
 #include "OmpCustomMenuTest_i.h"
 
 #define TYPE_FORMAT_STRING_SIZE   57                                
-#define PROC_FORMAT_STRING_SIZE   97                                
+#define PROC_FORMAT_STRING_SIZE   101                               
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   1            
@@ -92,17 +89,9 @@ extern const MIDL_STUBLESS_PROXY_INFO ICustomMenu_ProxyInfo;
 
 extern const USER_MARSHAL_ROUTINE_QUADRUPLE UserMarshalRoutines[ WIRE_MARSHAL_TABLE_SIZE ];
 
-#if !defined(__RPC_WIN32__)
+#if !defined(__RPC_WIN64__)
 #error  Invalid build platform for this stub.
 #endif
-
-#if !(TARGET_IS_NT50_OR_LATER)
-#error You need Windows 2000 or later to run this stub because it uses these features:
-#error   /robust command line switch.
-#error However, your C/C++ compilation flags indicate you intend to run this app on earlier systems.
-#error This app will fail with the RPC_X_WRONG_STUB_VERSION error.
-#endif
-
 
 static const OmpCustomMenuTest_MIDL_PROC_FORMAT_STRING OmpCustomMenuTest__MIDL_ProcFormatString =
     {
@@ -115,86 +104,88 @@ static const OmpCustomMenuTest_MIDL_PROC_FORMAT_STRING OmpCustomMenuTest__MIDL_P
 			0x6c,		/* Old Flags:  object, Oi2 */
 /*  2 */	NdrFcLong( 0x0 ),	/* 0 */
 /*  6 */	NdrFcShort( 0x3 ),	/* 3 */
-/*  8 */	NdrFcShort( 0x14 ),	/* x86 Stack size/offset = 20 */
+/*  8 */	NdrFcShort( 0x28 ),	/* X64 Stack size/offset = 40 */
 /* 10 */	NdrFcShort( 0x10 ),	/* 16 */
 /* 12 */	NdrFcShort( 0x8 ),	/* 8 */
 /* 14 */	0x45,		/* Oi2 Flags:  srv must size, has return, has ext, */
 			0x4,		/* 4 */
-/* 16 */	0x8,		/* 8 */
+/* 16 */	0xa,		/* 10 */
 			0x3,		/* Ext Flags:  new corr desc, clt corr check, */
 /* 18 */	NdrFcShort( 0x1 ),	/* 1 */
 /* 20 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 22 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 24 */	NdrFcShort( 0x0 ),	/* 0 */
 
 	/* Parameter type */
 
-/* 24 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
-/* 26 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 28 */	0x8,		/* FC_LONG */
+/* 26 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
+/* 28 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/* 30 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 	/* Parameter code */
 
-/* 30 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
-/* 32 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
-/* 34 */	0x8,		/* FC_LONG */
+/* 32 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
+/* 34 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
+/* 36 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 	/* Parameter commands */
 
-/* 36 */	NdrFcShort( 0x2113 ),	/* Flags:  must size, must free, out, simple ref, srv alloc size=8 */
-/* 38 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
-/* 40 */	NdrFcShort( 0x20 ),	/* Type Offset=32 */
+/* 38 */	NdrFcShort( 0x2113 ),	/* Flags:  must size, must free, out, simple ref, srv alloc size=8 */
+/* 40 */	NdrFcShort( 0x18 ),	/* X64 Stack size/offset = 24 */
+/* 42 */	NdrFcShort( 0x20 ),	/* Type Offset=32 */
 
 	/* Return value */
 
-/* 42 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
-/* 44 */	NdrFcShort( 0x10 ),	/* x86 Stack size/offset = 16 */
-/* 46 */	0x8,		/* FC_LONG */
+/* 44 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 46 */	NdrFcShort( 0x20 ),	/* X64 Stack size/offset = 32 */
+/* 48 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 	/* Procedure InvokeCommand */
 
-/* 48 */	0x33,		/* FC_AUTO_HANDLE */
+/* 50 */	0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
-/* 50 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 54 */	NdrFcShort( 0x4 ),	/* 4 */
-/* 56 */	NdrFcShort( 0x14 ),	/* x86 Stack size/offset = 20 */
-/* 58 */	NdrFcShort( 0x10 ),	/* 16 */
-/* 60 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 62 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
+/* 52 */	NdrFcLong( 0x0 ),	/* 0 */
+/* 56 */	NdrFcShort( 0x4 ),	/* 4 */
+/* 58 */	NdrFcShort( 0x28 ),	/* X64 Stack size/offset = 40 */
+/* 60 */	NdrFcShort( 0x10 ),	/* 16 */
+/* 62 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 64 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
 			0x4,		/* 4 */
-/* 64 */	0x8,		/* 8 */
+/* 66 */	0xa,		/* 10 */
 			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
-/* 66 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 68 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 70 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 68 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 70 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 72 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 74 */	NdrFcShort( 0x0 ),	/* 0 */
 
 	/* Parameter type */
 
-/* 72 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
-/* 74 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 76 */	0x8,		/* FC_LONG */
+/* 76 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
+/* 78 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/* 80 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 	/* Parameter code */
 
-/* 78 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
-/* 80 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
-/* 82 */	0x8,		/* FC_LONG */
+/* 82 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
+/* 84 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
+/* 86 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 	/* Parameter command */
 
-/* 84 */	NdrFcShort( 0x8b ),	/* Flags:  must size, must free, in, by val, */
-/* 86 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
-/* 88 */	NdrFcShort( 0x2e ),	/* Type Offset=46 */
+/* 88 */	NdrFcShort( 0x8b ),	/* Flags:  must size, must free, in, by val, */
+/* 90 */	NdrFcShort( 0x18 ),	/* X64 Stack size/offset = 24 */
+/* 92 */	NdrFcShort( 0x2e ),	/* Type Offset=46 */
 
 	/* Return value */
 
-/* 90 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
-/* 92 */	NdrFcShort( 0x10 ),	/* x86 Stack size/offset = 16 */
-/* 94 */	0x8,		/* FC_LONG */
+/* 94 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 96 */	NdrFcShort( 0x20 ),	/* X64 Stack size/offset = 32 */
+/* 98 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 			0x0
@@ -234,7 +225,7 @@ static const OmpCustomMenuTest_MIDL_TYPE_FORMAT_STRING OmpCustomMenuTest__MIDL_T
 /* 32 */	0xb4,		/* FC_USER_MARSHAL */
 			0x83,		/* 131 */
 /* 34 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 36 */	NdrFcShort( 0x4 ),	/* 4 */
+/* 36 */	NdrFcShort( 0x8 ),	/* 8 */
 /* 38 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 40 */	NdrFcShort( 0xffde ),	/* Offset= -34 (6) */
 /* 42 */	
@@ -243,7 +234,7 @@ static const OmpCustomMenuTest_MIDL_TYPE_FORMAT_STRING OmpCustomMenuTest__MIDL_T
 /* 46 */	0xb4,		/* FC_USER_MARSHAL */
 			0x83,		/* 131 */
 /* 48 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 50 */	NdrFcShort( 0x4 ),	/* 4 */
+/* 50 */	NdrFcShort( 0x8 ),	/* 8 */
 /* 52 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 54 */	NdrFcShort( 0xfff4 ),	/* Offset= -12 (42) */
 
@@ -276,7 +267,7 @@ static const USER_MARSHAL_ROUTINE_QUADRUPLE UserMarshalRoutines[ WIRE_MARSHAL_TA
 static const unsigned short ICustomMenu_FormatStringOffsetTable[] =
     {
     0,
-    48
+    50
     };
 
 static const MIDL_STUBLESS_PROXY_INFO ICustomMenu_ProxyInfo =
@@ -396,5 +387,5 @@ const ExtendedProxyFileInfo OmpCustomMenuTest_ProxyFileInfo =
 #endif
 
 
-#endif /* !defined(_M_IA64) && !defined(_M_AMD64) && !defined(_ARM_) */
+#endif /* defined(_M_AMD64)*/
 
