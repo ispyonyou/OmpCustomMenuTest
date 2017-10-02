@@ -13,5 +13,6 @@ HRESULT COmpCustomMenu::QueryContextMenu( long type, long code, BSTR* commands )
 
 HRESULT COmpCustomMenu::InvokeCommand( long type, long code, BSTR command )
 {
+  MessageBox( NULL, command, L"", MB_OK );
   return S_OK;
 }
